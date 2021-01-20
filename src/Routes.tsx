@@ -1,10 +1,9 @@
-import React from "react";
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import Main from './Pages/Main';
 import Quiz from './Pages/Quiz';
 import Result from './Pages/Result';
-import theme from './Styles/common';
+import { theme } from './Styles/theme';
 
 const Routes = () => {
 	return (

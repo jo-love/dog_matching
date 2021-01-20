@@ -1,4 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+import { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
+
+header, button {
+  font-family: 'Nanum Gothic';
+}
+
+ body {
+  font-family: 'Nanum Myeongjo', sans-serif;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  background-color: #FFC6C9;
+}
+
 
 html,
 body,
@@ -13,7 +28,6 @@ h3,
 h4,
 h5,
 h6,
-p,
 blockquote,
 pre,
 a,
@@ -85,39 +99,21 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
+  box-sizing: border-box;
 }
 
 body {
   line-height: 1;
 }
-
 ol,
 ul {
   list-style: none;
 }
-
 blockquote,
 q {
   quotes: none;
 }
-
 blockquote:before,
 blockquote:after,
 q:before,
@@ -125,20 +121,22 @@ q:after {
   content: "";
   content: none;
 }
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+img {
+  vertical-align: top;
+}
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: #333;
 }
 
 button {
   border: none;
+  background: none;
   outline: none;
-  background-color: transparent;
 }
-
+`;
