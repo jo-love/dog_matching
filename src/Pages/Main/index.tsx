@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 import DogImg from './dogImg';
+import { useHistory } from 'react-router';
 
-const Main = () => {
+function Main() {
+	const history = useHistory();
+
+	const goToQuiz = () => {
+		history.push('/quiz');
+	};
 	return (
 		<MainWapper>
 			<header className="title">SHOW ME MY DOG</header>
@@ -11,8 +17,8 @@ const Main = () => {
 				</div>
 				<div>나와 궁합이 잘 맞는 강아지는?</div>
 			</div>
-			<DogImg/>
-			<button className="startBtn">
+			<DogImg />
+			<button onClick={goToQuiz} className="startBtn">
 				<span>만</span>
 				<span>나</span>
 				<span>러</span>
@@ -21,7 +27,7 @@ const Main = () => {
 			</button>
 		</MainWapper>
 	);
-};
+}
 
 const MainWapper = styled.div`
 	${({ theme }) => theme.positions.flexColumnY};
@@ -67,11 +73,11 @@ const MainWapper = styled.div`
 	}
 
 	.startBtn {
-		width: 23%;
+		width: 20%;
 		height: 50px;
 		margin-top: 50px;
 		background-color: ${({ theme }) => theme.colors.button};
-		color: ${({ theme }) => theme.colors.textWhite};
+		color: ${({ theme }) => theme.colors.textLightgrey};
 		border-radius: 5px;
 		font-size: 20px;
 		letter-spacing: 5px;
@@ -80,6 +86,7 @@ const MainWapper = styled.div`
 
 		span {
 			font-weight: bold;
+			opacity: 0.7;
 		}
 
 		span:nth-child(3) {

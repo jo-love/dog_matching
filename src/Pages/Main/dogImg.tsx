@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const DogImg = () => {
+function DogImg() {
 	return (
 		<SvgBox>
 			<svg width="200" height="200" viewBox="0 0 243 256" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -71,11 +71,11 @@ const DogImg = () => {
 			</svg>
 		</SvgBox>
 	);
-};
+}
 
 const SvgBox = styled.div`
 	.pupils {
-		animation: eyeAnimation 3s step-end alternate infinite;
+		animation: eyeAnimation 2s step-end alternate infinite;
 		animation-delay: 1.7s;
 	}
 
