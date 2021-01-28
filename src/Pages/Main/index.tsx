@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import DogImg from './dogImg';
 import { useHistory } from 'react-router';
 
 function Main() {
@@ -17,7 +16,7 @@ function Main() {
 				</div>
 				<div>나와 궁합이 잘 맞는 강아지는?</div>
 			</div>
-			<DogImg />
+			<img src="https://media.giphy.com/media/dWx9zrVdVzFKxdDkMq/giphy.gif" alt="dog" />
 			<button onClick={goToQuiz} className="startBtn">
 				<span>만</span>
 				<span>나</span>
@@ -34,9 +33,10 @@ const MainWapper = styled.div`
 	color: ${({ theme }) => theme.colors.textWhite};
 
 	div,
+	img,
 	button {
 		opacity: 0;
-		animation: fadeIn ease-in 1;
+		animation: fadeIn ease-in;
 		animation-fill-mode: forwards;
 		animation-duration: 1s;
 	}
@@ -61,15 +61,21 @@ const MainWapper = styled.div`
 		font-size: 30px;
 		font-weight: bold;
 		text-align: center;
-		animation-delay: 0.7s;
+		animation-delay: 0.5s;
+
 		div:nth-child(2) {
 			padding: 20px 0;
 			font-size: 14px;
-			animation-delay: 1.2s;
+			animation-delay: 0.7s;
 		}
 		b {
 			color: ${({ theme }) => theme.colors.button};
 		}
+	}
+
+	img {
+		width: 200px;
+		animation-delay: 1.5s;
 	}
 
 	.startBtn {
@@ -82,7 +88,7 @@ const MainWapper = styled.div`
 		font-size: 20px;
 		letter-spacing: 5px;
 		cursor: pointer;
-		animation-delay: 1.6s;
+		animation-delay: 1.9s;
 
 		span {
 			font-weight: bold;

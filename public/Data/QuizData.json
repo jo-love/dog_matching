@@ -1,9 +1,9 @@
 {
-	"questions": 
+	"question": 
 		[
 			{
 				"id": 1,
-				"ask": "당신의 거주공간은 어디인가요?",
+				"quesiton": "당신의 거주공간은 어디인가요?",
 				"selections": [
 					{
 						"id": 1,
@@ -23,7 +23,7 @@
 	
 			{
 				"id": 2,
-				"ask": "당신은 운동을 좋아하나요?",
+				"quesiton": "당신은 운동을 좋아하나요?",
 				"selections": [
 					{
 						"id": 1,
@@ -39,7 +39,7 @@
 	
 			{
 				"id": 3,
-				"ask": "당신은 운동을 좋아하나요kk?",
+				"quesiton": "당신은 운동을 좋아하나요kk?",
 				"selections": [
 					{
 						"id": 1,

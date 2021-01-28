@@ -12,7 +12,7 @@ const Routes = () => {
 				<Switch>
 					<Route exact path="/" component={Main} />
 					<Route exact path="/quiz" component={Quiz} />
-					<Route exact path="/result" component={Result} />
+					<Route exact path="/result:id" component={Result} />
 				</Switch>
 			</Router>
 		</ThemeProvider>
