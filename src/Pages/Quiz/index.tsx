@@ -26,6 +26,7 @@ function Quiz() {
 					setNumber={setNumber}
 					id={questions[number].id}
 					question={questions[number].question}
+					symbol={questions[number].symbol}
 					selections={questions[number].selections}
 				/>
 			)}
@@ -34,20 +35,8 @@ function Quiz() {
 }
 
 const QuizWapper = styled.div`
-	margin-top: 50px;
 	text-align: center;
 	color: ${({ theme }) => theme.colors.textWhite};
-
-	.barContainer {
-		width:100%
-		background-color: red;
-		div {
-			width: 0;
-			height: 20px;
-			transition: width 0.3s;
-			background: red;
-		}
-	}
 `;
 
 export default Quiz;
