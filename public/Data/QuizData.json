@@ -1,0 +1,55 @@
+{
+	"question": 
+		[
+			{
+				"id": 1,
+				"quesiton": "당신의 거주공간은 어디인가요?",
+				"selections": [
+					{
+						"id": 1,
+						"option": "원룸"
+					},
+					{
+						"id": 2,
+						"option": "아파트"
+					},
+					{
+						"id": 3,
+						"option": "전원주택"
+					}
+				]
+			},
+	
+	
+			{
+				"id": 2,
+				"quesiton": "당신은 운동을 좋아하나요?",
+				"selections": [
+					{
+						"id": 1,
+						"option": "좋아한다"
+					},
+					{
+						"id": 2,
+						"option": "좋아하지 않는다"
+					}
+				]
+			},
+	
+	
+			{
+				"id": 3,
+				"quesiton": "당신은 운동을 좋아하나요kk?",
+				"selections": [
+					{
+						"id": 1,
+						"option": "좋아합니다"
+					},
+					{
+						"id": 2,
+						"option": "싫어합니다"
+					}
+				]
+			}
+		]
+}

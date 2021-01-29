@@ -4,7 +4,9 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "ES6",
+
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -18,9 +20,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
   },
   "include": [
-    "src"
-, "src/Routes.tsx"  ]
+    "src",
+    "src/Routes.tsx"
+  ]
 }
