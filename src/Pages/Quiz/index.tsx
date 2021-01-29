@@ -8,7 +8,6 @@ import styled from 'styled-components';
 function Quiz() {
 	const [questions, setQuestions] = useState<QA[]>([]);
 	const [number, setNumber] = useState(0);
-	const [count, setCount] = useState(0);
 
 	useEffect(() => {
 		axios
@@ -16,23 +15,11 @@ function Quiz() {
 			.then((res) => {
 				setQuestions(res.data.questions);
 			})
-			.catch((error) => {
-				console.error(error);
-			});
+			.catch((error) => console.error(error));
 	}, []);
-
-	// const handleProgress = () => {
-	// 	 etWidth(width + 10);
-	// };
 
 	return (
 		<QuizWapper>
-			<div className="barConatainer">
-				<div className="progressBar"></div>
-				<img width="100px" src="https://media.giphy.com/media/KAdqfMqoM5turRW9xs/giphy.gif" alt="runingDog" />
-				<img width="100px" src="https://media.giphy.com/media/h2eyC37s9PrWNua8Ir/giphy.gif" alt="" />
-				<img width="100px" src="https://media.giphy.com/media/kC2dlk5aBm98Slcw0D/giphy.gif" alt="" />
-			</div>
 			{questions[number] && (
 				<Buttons
 					number={number}

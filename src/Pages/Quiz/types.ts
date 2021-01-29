@@ -10,3 +10,7 @@ export interface QA {
 		}
 	];
 }
+
+export interface ProgressBarProps {
+	left: number;
+}

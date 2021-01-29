@@ -1,44 +1,65 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router';
-import { QA } from './types';
 import { ANSWERAPI } from '../../API';
+import { QA } from './types';
+import { ProgressBarProps } from './types';
 import axios from 'axios';
 import styled from 'styled-components';
 
 function Buttons({ id, question, selections, number, setNumber }: QA) {
-	const [isCliked, setIsClicked] = useState(false);
+	const [currentPage, setCurrentPage] = useState(1);
 	const [userAnswers, setUserAnswers] = useState({});
+	const [left, setLeft] = useState(-120);
 	const history = useHistory();
 
 	const previousQuestion = () => {
 		setNumber(number - 1);
-		setIsClicked(true);
+		// console.log('prev', userAnswers);
 	};
 
 	//수정 필요
 	const checkAnswers = (QId: number, AId: number) => {
-		console.log('질문', QId);
-		console.log('대답', AId);
+		// console.log('질문', QId);
+		// console.log('대답', AId);
+		setCurrentPage(QId);
 		const key = QId;
 		const obj = { [`${key}`]: AId };
 		setUserAnswers({ ...userAnswers, ...obj });
-		console.log(userAnswers);
 		if (QId === 11) {
-			axios.post(ANSWERAPI).then((res) => {
-				history.push(`/result/${res}`);
-			});
+			axios
+				.post(ANSWERAPI, userAnswers)
+				.then((res) => {
+					console.log(res);
+					// history.push(`/result/${res}`);
+				})
+				.catch((error) => console.log(error));
 		}
+
 		nextQuestion();
+		// moveForward();
 	};
 
 	const nextQuestion = () => {
 		setNumber(number + 1);
+		setLeft(left + 20);
+		// console.log('next', userAnswers);
 	};
 
+	// const moveForward = () => {
+	// 	setLeft(left + 20);
+	// };
+	console.log('userA', userAnswers);
+	console.log('current', currentPage);
+	console.log('id', id);
+	console.log('obj', Object.keys(userAnswers)[Object.keys(userAnswers).length - 1]);
 	return (
 		<AnswerWrapper>
+			<ProgressBar left={left}>
+				<img width="90px" src="https://media.giphy.com/media/kC2dlk5aBm98Slcw0D/giphy.gif" alt="walkingdog" />
+			</ProgressBar>
+			<img className="dogFood" src="/Images/dog-bowl.png" alt="dogHouse" />
 			<h2>{question}</h2>
-			<img width="40px" src="/Images/home.png" />
+			<img className="icon" src="/Images/family.png" />
 			{selections.map((answer, idx) => (
 				<button onClick={() => checkAnswers(id, answer.id)} key={idx}>
 					{answer.option}
@@ -63,7 +84,7 @@ function Buttons({ id, question, selections, number, setNumber }: QA) {
 						></path>
 					</svg>
 				)}
-				{isCliked && (
+				{Object.keys(userAnswers)[0] && Object.keys(userAnswers)[Object.keys(userAnswers).length - 1] !== `${id - 1}` && (
 					<svg
 						onClick={nextQuestion}
 						aria-hidden="true"
@@ -87,18 +108,30 @@ function Buttons({ id, question, selections, number, setNumber }: QA) {
 }
 
 const AnswerWrapper = styled.div`
-	 ${({ theme }) => theme.positions.flexColumnY};
-		color: ${({ theme }) => theme.colors.textWhite}
-		margin-top: 50px;
+	${({ theme }) => theme.positions.flexColumnY};
+	color: ${({ theme }) => theme.colors.textWhite};
+	margin-top: 50px;
 
 	h2 {
-        margin: 50px 0 20px 0;
-        font-size: 20px;
+		margin: 20px 0 30px 0;
+		font-size: 20px;
+	}
+
+	.dogFood {
+		width: 35px;
+		position: relative;
+		left: 6.5%;
+		bottom: 58px;
+	}
+
+	.icon {
+		width: 40px;
+		margin-bottom: 20px;
 	}
 
 	button {
 		width: 300px;
-	 	height: 80px;
+		height: 80px;
 		margin-bottom: 30px;
 		border: 2px solid ${({ theme }) => theme.colors.textLightgrey};
 		color: ${({ theme }) => theme.colors.textWhite};
@@ -113,17 +146,22 @@ const AnswerWrapper = styled.div`
 	}
 
 	svg {
-		width: 30px;
-		position: relative;
-		bottom: 200px;
+		width: 20px;
+		position: fixed;
+		top: 240px;
 		cursor: pointer;
 	}
 	.chevronLeft {
-		right: 180px;
+		left: 43%;
 	}
 	.chevronRight {
-		left: 180px;
+		right: 43%;
 	}
+`;
+
+const ProgressBar = styled.div<ProgressBarProps>`
+	position: relative;
+	left: ${(props) => props.left}px;
 `;
 
 export default Buttons;
