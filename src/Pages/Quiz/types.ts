@@ -3,6 +3,7 @@ export interface QA {
 	setNumber: React.Dispatch<React.SetStateAction<number>>;
 	id: number;
 	question: string;
+	symbol: string;
 	selections: [
 		{
 			id: number;
