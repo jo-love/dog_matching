@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { QUESTIONAPI } from '../../API';
 import { QA } from './types';
 import axios from 'axios';
-import Buttons from './buttons';
+import Cards from './cards';
 import styled from 'styled-components';
 
 function Quiz() {
@@ -21,7 +21,7 @@ function Quiz() {
 	return (
 		<QuizWapper>
 			{questions[number] && (
-				<Buttons
+				<Cards
 					number={number}
 					setNumber={setNumber}
 					id={questions[number].id}
