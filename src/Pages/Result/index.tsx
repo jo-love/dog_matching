@@ -2,6 +2,7 @@ import { ResultData, useResultContext } from '../../Contexts/ResultContext';
 import { useHistory } from 'react-router';
 import Card from './Card';
 import styled from 'styled-components';
+import Contributors from '../Contributors';
 
 function Result() {
 	const { result }: any = useResultContext();
@@ -13,6 +14,10 @@ function Result() {
 
 	const restart = () => {
 		history.push('/');
+	};
+
+	const contributors = () => {
+		history.push('/contributors');
 	};
 
 	return (
@@ -31,7 +36,7 @@ function Result() {
 			})}
 			<button onClick={restart}>다시하러 가기</button>
 			<button onClick={goToSite}>유기견 무료 분양 보러가기</button>
-			<button onClick={restart}>만든 사람들</button>
+			<button onClick={contributors}>만든 사람들</button>
 		</ResultWrapper>
 	);
 }
