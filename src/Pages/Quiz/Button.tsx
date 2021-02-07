@@ -42,7 +42,6 @@ function Button({ id, question, symbol, selections, number, setNumber }: QAData)
 		setNumber(number + 1);
 		setLeft(left + 21.5);
 	};
-	console.log('>>', result);
 
 	// username의 첫번째 질문(0번 인덱스)이 있고, = 사용자가 첫번째에 답변했을 경우
 	// username의 마지막질문이 질문의 id와 같지 않으면

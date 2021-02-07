@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 
 export type ResultData = {
+	id: number;
 	img: string;
 	name: string;
 	averageSize: string;

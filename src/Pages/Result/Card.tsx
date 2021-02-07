@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { ResultData } from '../../Contexts/ResultContext';
 
-function Card({ img, name, averageSize, play, description }: ResultData) {
+function Card({ id, img, name, averageSize, play, description }: ResultData) {
 	return (
 		<CardWrapper>
-			<div className="imgBox">
+			<ImgBox num={id}>
 				<img src={img} alt="matching_dog" />
-			</div>
+			</ImgBox>
 			<div className="content">
 				<p>{name}</p>
 				<div className="wrapper">
@@ -27,6 +27,18 @@ function Card({ img, name, averageSize, play, description }: ResultData) {
 
 export default Card;
 
+interface ImgBoxProps {
+	num: number;
+}
+
+const ImgBox = styled.div<ImgBoxProps>`
+	width: 40%;
+	border-radius: 25px;
+	background: ${(props) => (props.num === 1 ? 'linear-gradient(to right, #f3c392, #f3d9b9)' : '')};
+	background: ${(props) => (props.num === 2 ? 'linear-gradient(to right, #C8E7D0, #E6EEE4)' : '')};
+	background: ${(props) => (props.num === 3 ? 'linear-gradient(to right, #B6C2DD, #CDD7EB)' : '')};
+`;
+
 const CardWrapper = styled.section`
 	display: flex;
 	width: 430px;
@@ -34,19 +46,13 @@ const CardWrapper = styled.section`
 	margin-bottom: 30px;
 	border-radius: 32px;
 	background-color: ${({ theme }) => theme.colors.textGrayishyellow};
-	box-shadow: 3px 3px 8px #e6e6e6;
+	box-shadow: rgb(0 0 0 /50%) 0px 5px 5px -5px;
 
-	.imgBox {
-		width: 40%;
-		border-radius: 25px;
-		background: linear-gradient(to right, #f3c392, #f3d9b9);
-
-		img {
-			width: 120px;
-			position: relative;
-			bottom: 45px;
-			left: 30px;
-		}
+	img {
+		width: 120px;
+		position: relative;
+		bottom: 45px;
+		left: 30px;
 	}
 
 	.content {

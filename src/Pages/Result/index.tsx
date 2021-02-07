@@ -2,7 +2,6 @@ import { ResultData, useResultContext } from '../../Contexts/ResultContext';
 import { useHistory } from 'react-router';
 import Card from './Card';
 import styled from 'styled-components';
-import Contributors from '../Contributors';
 
 function Result() {
 	const { result }: any = useResultContext();
@@ -23,9 +22,11 @@ function Result() {
 	return (
 		<ResultWrapper>
 			<strong>당신에게 추천하는 강아지는</strong>
-			{result.map((dog: ResultData) => {
+			{result.map((dog: ResultData, idx: number) => {
 				return (
 					<Card
+						key={idx}
+						id={idx+1}
 						img={dog.img}
 						name={dog.name}
 						averageSize={dog.averageSize}
@@ -62,11 +63,6 @@ const ResultWrapper = styled.div`
 		font-size: 1rem;
 		cursor: pointer;
 		box-shadow: rgb(0 0 0) 0px 5px 5px -5px;
-	}
-
-	&: hover {
-		transition: all 0.5s ease 0s;
-		box-shadow: rgb(0 0 0 / 50%) 0px 15px 15px -15p;
 	}
 
 	@media ${({ theme }) => theme.size.mobile} {
