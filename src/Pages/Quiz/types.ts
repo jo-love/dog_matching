@@ -1,4 +1,4 @@
-export interface QA {
+export interface QAData {
 	number: number;
 	setNumber: React.Dispatch<React.SetStateAction<number>>;
 	id: number;
@@ -14,4 +14,12 @@ export interface QA {
 
 export interface ProgressBarProps {
 	left: number;
+}
+
+export interface UserAnswerData {
+	[key: string]: number;
+}
+
+export interface ResultData {
+	name: string;
 }

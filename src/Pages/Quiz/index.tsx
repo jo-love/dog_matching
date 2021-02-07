@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { QUESTIONAPI } from '../../API';
-import { QA } from './types';
+import { QAData } from './types';
 import axios from 'axios';
-import Cards from './cards';
+import Button from './Button';
 import styled from 'styled-components';
 
 function Quiz() {
-	const [questions, setQuestions] = useState<QA[]>([]);
+	const [questions, setQuestions] = useState<QAData[]>([]);
 	const [number, setNumber] = useState(0);
 
 	useEffect(() => {
@@ -21,7 +21,7 @@ function Quiz() {
 	return (
 		<QuizWapper>
 			{questions[number] && (
-				<Cards
+				<Button
 					number={number}
 					setNumber={setNumber}
 					id={questions[number].id}

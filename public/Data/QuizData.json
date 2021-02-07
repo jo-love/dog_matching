@@ -1,5 +1,5 @@
 {
-	"question": 
+	"questions": 
 		[
 			{
 				"id": 1,
@@ -39,7 +39,7 @@
 	
 			{
 				"id": 3,
-				"quesiton": "당신은 운동을 좋아하나요kk?",
+				"quesiton": "당신은 운동을 좋아하나요?",
 				"selections": [
 					{
 						"id": 1,
