@@ -88,11 +88,13 @@ const MainWapper = styled.section`
 			height: 50px;
 			margin-top: 50px;
 			background-color: ${({ theme }) => theme.colors.button};
-			color: ${({ theme }) => theme.colors.textLightgrey};
-			border-radius: 5px;
+			color: ${({ theme }) => theme.colors.textWhite};
+			border-radius: 7px;
 			font-size: 1rem;
+			font-weight: bold;
 			letter-spacing: 5px;
 			cursor: pointer;
+			box-shadow: rgb(0 0 0) 0px 5px 5px -5px;
 			animation-delay: 1.9s;
 
 			span {
@@ -140,13 +142,43 @@ const MainWapper = styled.section`
 	}
 
 	@media ${({ theme }) => theme.size.mobile} {
-		
 		header {
 			margin-top: 15px;
 		}
 
 		.container {
 			margin-top: 40px;
+
+			span {
+				display: inline-block;
+				animation: startBtn 1.3s infinite alternate;
+			}
+			span:nth-child(2) {
+				animation-delay: 0.1s;
+			}
+			span:nth-child(3) {
+				animation-delay: 0.2s;
+			}
+			span:nth-child(4) {
+				animation-delay: 0.3s;
+			}
+			span:nth-child(5) {
+				animation-delay: 0.4s;
+			}
+			span:nth-child(6) {
+				animation-delay: 0.5s;
+			}
+			span:nth-child(7) {
+				animation-delay: 0.6s;
+			}
+			@keyframes startBtn {
+				0% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
 		}
 	}
 `;

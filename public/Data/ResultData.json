@@ -1,0 +1,25 @@
+{
+    "results": 
+        [
+            {   
+                "img":"/Images/golden.png",
+                "name":"골든 리트리버",
+                "averageSize":"25-35kg",
+                "description":"골든 리트리버는 맷너겟 품종입니다. 특징은 활발하고 온순합니다. 운동량이 많은 편입니다."    
+            },
+
+            {   
+                "img":"/Images/pug.png",
+                "name":"퍼그",
+                "averageSize":"6-8kg",
+                "description":"퍼그는 못생겼어요. 근데 볼수록 매력있죠.그게 특징이라면 특징이죠."
+            },
+
+            {   
+                "img":"/Images/Maltese.png",
+                "name": "말티즈",
+                "averageSize":"9-11kg",
+                "description":"비글은 악마견 품종입니다. 특징은 활발하고 발랄합니다. 운동량이 많은 편입니다."
+            }
+        ]
+}
