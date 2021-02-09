@@ -9,7 +9,7 @@ import styled from 'styled-components';
 function Button({ id, question, symbol, selections, number, setNumber }: QAData) {
 	const [userAnswers, setUserAnswers] = useState<UserAnswerData>({});
 	const [left, setLeft] = useState(-100);
-	const { result, setResult }: any = useResultContext();
+	const { setResult }: any = useResultContext();
 	const [loading, setLoading] = useState(false);
 	const history = useHistory();
 
@@ -43,9 +43,6 @@ function Button({ id, question, symbol, selections, number, setNumber }: QAData)
 		setLeft(left + 21.5);
 	};
 
-	// username의 첫번째 질문(0번 인덱스)이 있고, = 사용자가 첫번째에 답변했을 경우
-	// username의 마지막질문이 질문의 id와 같지 않으면
-	// 다음으로 가기 버튼을 보여줘라.
 	return (
 		<AnswerWrapper>
 			{loading && (
@@ -92,11 +89,6 @@ function Button({ id, question, symbol, selections, number, setNumber }: QAData)
 								/>
 							)}
 					</div>
-					{/* // 1. 현재 페이지의 번호를 가져온다. userAnswers[number]
-				// 2. 그 번호로 userAnswer의 key가 있는지 확인한다.
-				// 3. userAnswer에 key가 있으면 value를 가져온다.
-				// 4. value와 버튼의 아이디가 동일하면 스타일을 바꾼다. */}
-
 					{selections.map((answer, idx) => (
 						<ButtonStyle
 							style={{

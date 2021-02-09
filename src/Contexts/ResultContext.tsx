@@ -9,11 +9,6 @@ export type ResultData = {
 	description: string;
 };
 
-// export type ResultState = {
-// 	result: [];
-// 	setResult: React.Dispatch<React.SetStateAction<[]>>;
-// };
-
 export const ResultContext = createContext<ResultData | undefined>(undefined);
 
 export function ResultContextProvider({ children }: { children: React.ReactNode }) {
