@@ -35,14 +35,14 @@ function Contributors() {
 						<ul>
 							<li>조연정</li>
 							<li onClick={yjGit}>GitHub</li>
-							<li onClick={wcGit}>jolove.dev@gmail.com</li>
+							<li>jolove.dev@gmail.com</li>
 						</ul>
 					</div>
 					<div className="info">
 						<img src="/Images/쿠마얏.jpeg" alt="kuma" />
 						<ul>
 							<li>이원철</li>
-							<li>GitHub</li>
+							<li onClick={wcGit}>GitHub</li>
 							<li>lee.oneiron@gmail.com</li>
 						</ul>
 					</div>
