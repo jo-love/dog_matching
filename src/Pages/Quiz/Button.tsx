@@ -6,7 +6,7 @@ import { useResultContext } from '../../Contexts/ResultContext';
 import axios from 'axios';
 import styled from 'styled-components';
 
-function Button({ id, question, symbol, selections, number, setNumber }: QAData) {
+function Button({ id, lastQId, question, symbol, selections, number, setNumber }: QAData) {
 	const [userAnswers, setUserAnswers] = useState<UserAnswerData>({});
 	const [left, setLeft] = useState(-100);
 	const { setResult }: any = useResultContext();
@@ -14,10 +14,11 @@ function Button({ id, question, symbol, selections, number, setNumber }: QAData)
 	const history = useHistory();
 
 	const checkAnswer = (QId: number, AId: number) => {
+		console.log('userAnswer', userAnswers);
 		const key = QId;
 		const obj = { [`${key}`]: AId };
 		setUserAnswers({ ...userAnswers, ...obj });
-		if (QId === 10) {
+		if (QId === lastQId) {
 			setLoading(true);
 			axios
 				.post(ANSWERAPI, userAnswers)
@@ -28,7 +29,7 @@ function Button({ id, question, symbol, selections, number, setNumber }: QAData)
 				})
 				.catch((error) => console.log(error));
 		}
-		if (QId !== 10) {
+		if (QId !== lastQId) {
 			nextQuestion();
 		}
 	};

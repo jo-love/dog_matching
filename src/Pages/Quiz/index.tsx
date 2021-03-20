@@ -22,6 +22,7 @@ function Quiz() {
 		<QuizWapper>
 			{questions[number] && (
 				<Button
+					lastQId={questions.length}
 					number={number}
 					setNumber={setNumber}
 					id={questions[number].id}

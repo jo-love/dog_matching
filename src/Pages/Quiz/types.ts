@@ -1,4 +1,5 @@
 export interface QAData {
+	lastQId: number;
 	number: number;
 	setNumber: React.Dispatch<React.SetStateAction<number>>;
 	id: number;
