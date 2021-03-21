@@ -14,7 +14,6 @@ function Button({ id, lastQId, question, symbol, selections, number, setNumber }
 	const history = useHistory();
 
 	const checkAnswer = (QId: number, AId: number) => {
-		console.log('userAnswer', userAnswers);
 		const key = QId;
 		const obj = { [`${key}`]: AId };
 		setUserAnswers({ ...userAnswers, ...obj });
@@ -27,7 +26,12 @@ function Button({ id, lastQId, question, symbol, selections, number, setNumber }
 					setResult(res.data);
 					history.push('/result');
 				})
-				.catch((error) => console.log(error));
+				.catch((error) => {
+					console.log(error);
+					setLoading(false);
+					alert('오류가 발생하였습니다.');
+					history.push('/');
+				});
 		}
 		if (QId !== lastQId) {
 			nextQuestion();
