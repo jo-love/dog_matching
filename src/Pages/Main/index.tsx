@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { useHistory } from 'react-router';
+import styled from 'styled-components';
 
 function Main() {
 	const history = useHistory();
@@ -106,7 +106,7 @@ const MainWapper = styled.section`
 				padding-right: 8px;
 			}
 
-			&: hover {
+			&:hover {
 				span {
 					display: inline-block;
 					animation: startBtn 1.3s infinite alternate;

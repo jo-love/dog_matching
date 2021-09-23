@@ -4,7 +4,7 @@ import Card from './Card';
 import styled from 'styled-components';
 
 function Result() {
-	const { result }: any = useResultContext();
+	const { result } = useResultContext();
 	const history = useHistory();
 
 	const goToSite = () => {
@@ -26,7 +26,7 @@ function Result() {
 				return (
 					<Card
 						key={idx}
-						id={idx+1}
+						id={idx + 1}
 						img={dog.img}
 						name={dog.name}
 						averageSize={dog.averageSize}

@@ -9,7 +9,7 @@ import styled from 'styled-components';
 function Button({ id, lastQId, question, symbol, selections, number, setNumber }: QAData) {
 	const [userAnswers, setUserAnswers] = useState<UserAnswerData>({});
 	const [left, setLeft] = useState(-100);
-	const { setResult }: any = useResultContext();
+	const { setResult } = useResultContext();
 	const [loading, setLoading] = useState(false);
 	const history = useHistory();
 
@@ -23,7 +23,7 @@ function Button({ id, lastQId, question, symbol, selections, number, setNumber }
 				.post(ANSWERAPI, userAnswers)
 				.then((res) => {
 					setLoading(false);
-					setResult(res.data);
+					setResult && setResult(res.data);
 					history.push('/result');
 				})
 				.catch((error) => {
@@ -37,7 +37,6 @@ function Button({ id, lastQId, question, symbol, selections, number, setNumber }
 			nextQuestion();
 		}
 	};
-
 	const previousQuestion = () => {
 		setNumber(number - 1);
 		setLeft(left - 21.5);
@@ -85,6 +84,7 @@ function Button({ id, lastQId, question, symbol, selections, number, setNumber }
 							/>
 						)}
 						{Object.keys(userAnswers)[0] &&
+							//배열 useranswers는 이전버튼으로 가도 계속 똑같은 길이가 저장되어 있고, id는 전으로 갈 때 같이 바뀌기 때문에 달라짐
 							Object.keys(userAnswers)[Object.keys(userAnswers).length - 1] !== `${id - 1}` && (
 								<img
 									onClick={nextQuestion}

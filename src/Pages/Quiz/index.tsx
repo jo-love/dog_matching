@@ -14,10 +14,10 @@ function Quiz() {
 			.get(QUESTIONAPI)
 			.then((res) => {
 				setQuestions(res.data.questions);
+				console.log(res.data);
 			})
 			.catch((error) => console.error(error));
 	}, []);
-
 	return (
 		<QuizWapper>
 			{questions[number] && (

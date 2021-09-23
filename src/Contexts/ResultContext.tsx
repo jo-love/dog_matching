@@ -9,19 +9,19 @@ export type ResultData = {
 	description: string;
 };
 
-export const ResultContext = createContext<ResultData | undefined>(undefined);
+export type ResultContextProps = {
+	result: ResultData[];
+	setResult?: (data: ResultData[]) => void;
+};
+
+export const ResultContext = createContext<ResultContextProps>({ result: [] });
 
 export function ResultContextProvider({ children }: { children: React.ReactNode }) {
-	const [result, setResult] = useState([]);
+	const [result, setResult] = useState<ResultData[]>([]);
 
-	const value: any = {
-		result,
-		setResult,
-	};
-
-	return <ResultContext.Provider value={value}>{children}</ResultContext.Provider>;
+	return <ResultContext.Provider value={{ result, setResult }}>{children}</ResultContext.Provider>;
 }
 
-export function useResultContext() {
+export function useResultContext(): ResultContextProps {
 	return useContext(ResultContext);
 }
